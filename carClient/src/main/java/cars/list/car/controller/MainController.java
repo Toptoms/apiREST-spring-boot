@@ -78,11 +78,10 @@ public class MainController {
 
    public String deleteCar(@PathVariable int id ){
 
-
   RestTemplate template = new RestTemplate();
    template.delete("http://localhost:8080/Cars/"+id, Car.class);
 
-    return "carlist";
+    return "carList";
 
 }
 

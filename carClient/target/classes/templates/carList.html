@@ -1,42 +1,47 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Cars List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="container text-center">
-<h1>Cars List</h1>
-<a href="../addCar">Add Car</a>
-<br/><br/>
-<div class="row justify-content-center">
-    <table border="1">
-        <tr>
-            <th>Id</th>
-            <th>Brand</th>
-            <th>Type</th>
-            <th>Actions</th>
+    <h1>Cars List</h1>
+    <a href="../addCar">Add Car</a>
+    <br/><br/>
+    <div class="row justify-content-center">
+        <table class="table table-striped">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Type</th>
+                <th scope="col">Actions</th>
 
-        </tr>
-        <tr th:each ="car : ${cars}">
-            <td th:utext="${car.id}">...</td>
-            <td th:utext="${car.brand}">...</td>
-            <td th:utext="${car.type}">...</td>
-            <td>
-                <form  th:action="@{/carDetail}"
-                      method="POST">
-                    <input type="submit" value="Update" />
-                </form>
-                <form th:action="@{'/carList/'+${car.id}}" method="GET">
-                <input type="submit" value="Delete" />
-                </form>
-            </td>
+            </tr>
+            <tr th:each="car : ${cars}">
+                <td th:utext="${car.id}">...</td>
+                <td th:utext="${car.brand}">...</td>
+                <td th:utext="${car.type}">...</td>
+                <td class="row justify-content-center">
 
-        </tr>
-    </table>
-</div>
+
+                    <form th:action="@{/carDetail}"
+                          method="POST">
+                        <input class="btn btn-light" type="submit" value="Update"/>
+                    </form>
+
+
+                    <form th:action="@{'/carList/'+${car.id}}" method="GET">
+                        <input class="btn btn-warning" type="submit" value="Delete"/>
+                    </form>
+                </td>
+
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 </html>

@@ -17,10 +17,10 @@
             <th>Type</th>
 
         </tr>
-        <tr th:each ="car : ${cars}">
-            <td th:utext="${car.id}">...</td>
-            <td th:utext="${car.brand}">...</td>
-            <td th:utext="${car.type}">...</td>
+        <tr th:each ="vehicle : ${cars}">
+            <td th:utext="${vehicle.id}">...</td>
+            <td th:utext="${vehicle.brand}">...</td>
+            <td th:utext="${vehicle.type}">...</td>
 
         </tr>
     </table>
